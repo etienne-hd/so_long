@@ -1,0 +1,67 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_flood_fill.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/01 02:08:02 by ehode            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+static int	is_playable(t_map map)
+{
+	size_t	y;
+	size_t	x;
+
+	y = 1;
+	while (y < map.size.y - 1)
+	{
+		x = 1;
+		while (x < map.size.x - 1)
+		{
+			if (
+				map.map[y][x] == START
+				|| map.map[y][x] == EXIT
+				|| map.map[y][x] == COLLECTIBLE
+			)
+				return (0);
+			x++;
+		}
+		y++;
+	}
+	return (1);
+}
+
+static void	process(t_map *map, size_t x, size_t y)
+{
+	map->map[y][x] = 'X';
+	if (map->map[y][x + 1] != WALL && map->map[y][x + 1] != FILL)
+		process(map, x + 1, y);
+	if (map->map[y][x - 1] != WALL && map->map[y][x - 1] != FILL)
+		process(map, x - 1, y);
+	if (map->map[y + 1][x] != WALL && map->map[y + 1][x] != FILL)
+		process(map, x, y + 1);
+	if (map->map[y - 1][x] != WALL && map->map[y - 1][x] != FILL)
+		process(map, x, y - 1);
+}
+
+int	map_flood_fill(t_map map)
+{
+	t_map	flood_fill_map;
+	int		valid;
+
+	flood_fill_map = clone_map(map);
+	if (flood_fill_map.map == NULL)
+	{
+		ft_dprintf(2, "Error\nAllocation failed.\n");
+		return (1);
+	}
+	process(&flood_fill_map, map.start.x, map.start.y);
+	valid = is_playable(flood_fill_map);
+	destroy_map(&flood_fill_map);
+	return (valid);
+}
