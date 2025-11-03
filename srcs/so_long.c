@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:50:03 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:17:28 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 21:54:01 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Usage: %s <*.ber>\n", argv[0]);
+		ft_dprintf(2, "Usage: %s <*.ber>\n", argv[0]);
 		return (1);
 	}
 	map = load_map(argv[1]);

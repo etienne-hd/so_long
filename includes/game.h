@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:32:52 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:22:13 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 21:51:01 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,9 @@ void	game_on_exit(t_game *game);
 // hook
 void	game_key_hook(int key, void* param);
 void 	game_window_hook(int event, void *param);
+
+// render
+void	game_render_map(t_game *game);
+void	game_render_player(t_game *game);
 
 #endif

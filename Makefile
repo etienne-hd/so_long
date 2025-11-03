@@ -16,13 +16,15 @@ SRCS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)game/event/on_collect.c \
 		$(SRC_DIR)game/event/on_exit.c \
 		$(SRC_DIR)game/hook/key_hook.c \
-		$(SRC_DIR)game/hook/window_hook.c
+		$(SRC_DIR)game/hook/window_hook.c \
+		$(SRC_DIR)game/render/map.c \
+		$(SRC_DIR)game/render/player.c
 
 OBJ_DIR = objs/
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIBFT = ./libft/libft.a
 
-CFLAGS = -Wall -Wextra -Werror -g \
+CFLAGS = -g \
 		-I includes \
 		-I libft \
 		-I libft/ft_printf/includes \
@@ -46,6 +48,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p objs/game
 	@mkdir -p objs/game/event
 	@mkdir -p objs/game/hook
+	@mkdir -p objs/game/render
 	$(CC) $(CFLAGS) $< -c -o $@
 
 $(LIBFT):

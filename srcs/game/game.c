@@ -6,13 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:36:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:20:40 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 18:38:46 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "game.h"
 #include "texture.h"
+#include "game.h"
 
 static void	destroy(t_game *game)
 {
@@ -25,8 +25,7 @@ static mlx_window_create_info	get_info(size_t x, size_t y)
 {
 	mlx_window_create_info	info;
 
-	info.is_fullscreen = 0;
-	info.render_target = 0;
+	ft_bzero(&info, sizeof(mlx_window_create_info));
 	info.title = "so_long";
 	info.width = x;
 	info.height = y;

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:41:39 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:20:05 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 21:30:23 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 #include "texture.h"
 #include "game.h"
 
-const char *textures[] = {
-	"assets/air.bmp", "assets/wall.bmp", "assets/collectible.bmp",
-	"assets/start.bmp", "assets/exit.bmp", "assets/player.bmp",
+const char *g_textures[] = {
+	"assets/air.bmp",
+	"assets/wall.bmp",
+	"assets/collectible.bmp",
+	"assets/start.bmp",
+	"assets/exit.bmp",
+	"assets/player.bmp",
 	NULL
 };
 
@@ -41,9 +45,9 @@ t_dict	*load_textures(t_game *game)
 	if (!dict)
 		return (NULL);
 	i = 0;
-	while (textures[i])
+	while (g_textures[i])
 	{
-		ft_dict_set(dict, textures[i], load_texture(game, textures[i]));
+		ft_dict_set(dict, g_textures[i], load_texture(game, g_textures[i]));
 		i++;
 	}
 	return (dict);
@@ -62,9 +66,9 @@ int	check_textures(t_game *game)
 	size_t	i;
 
 	i = 0;
-	while (textures[i])
+	while (g_textures[i])
 	{
-		if (!ft_dict_get(game->textures, textures[i]))
+		if (!ft_dict_get(game->textures, g_textures[i]))
 			return (0);
 		i++;
 	}
@@ -77,9 +81,9 @@ void	destroy_textures(t_game *game)
 	t_texture	*texture;
 
 	i = 0;
-	while (textures[i])
+	while (g_textures[i])
 	{
-		texture = ft_dict_get(game->textures, textures[i]);
+		texture = ft_dict_get(game->textures, g_textures[i]);
 		if (texture)
 		{
 			mlx_destroy_image(game->mlx, texture->texture);

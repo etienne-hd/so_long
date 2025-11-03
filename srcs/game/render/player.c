@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   on_update.c                                        :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 21:22:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 21:50:39 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/03 21:44:37 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/03 21:51:47 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "texture.h"
 
-void game_on_update(void *param)
+void	game_render_player(t_game *game)
 {
-	t_game	*game;
-
-	game = (t_game *)param;
-	mlx_clear_window(game->mlx, game->win, (mlx_color){0});
-	game_render_map(game);
-	game_render_player(game);
+	mlx_put_image_to_window(
+		game->mlx, game->win, 
+		get_texture(game, "assets/player.bmp"), 
+		game->player->pos.x * TEXTURE_SIZE, 
+		game->player->pos.y * TEXTURE_SIZE
+	);
 }
