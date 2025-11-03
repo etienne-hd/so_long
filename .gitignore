@@ -1,0 +1,8 @@
+compile_commands.json
+*.o
+mlx
+.vscode
+objs
+so_long
+example.c
+.cache
