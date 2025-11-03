@@ -31,9 +31,14 @@ CFLAGS = -Wall -Wextra -Werror -g \
 
 LDFLAGS = $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
 
-all:$(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(MLX_DIR)libmlx.so:
+	git clone https://github.com/seekrs/MacroLibX.git mlx --depth=1
+	$(MAKE) -C mlx -j
+
+
+$(NAME): $(OBJS) $(LIBFT) $(MLX_DIR)libmlx.so
 	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
@@ -47,6 +52,7 @@ $(LIBFT):
 	$(MAKE) -C libft
 
 fclean: clean
+	rm -rf $(MLX_DIR)
 	rm -f $(NAME)
 	$(MAKE) -C libft fclean
 
