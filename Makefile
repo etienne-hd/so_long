@@ -38,7 +38,7 @@ $(MLX_DIR)libmlx.so:
 	$(MAKE) -C mlx -j
 
 
-$(NAME): $(OBJS) $(LIBFT) $(MLX_DIR)libmlx.so
+$(NAME): $(MLX_DIR)libmlx.so $(OBJS) $(LIBFT)
 	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c

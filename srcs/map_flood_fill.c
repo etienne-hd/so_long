@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:31:05 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:11:12 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "map.h"
+#include "libft.h"
 
 static int	is_playable(t_map map)
 {

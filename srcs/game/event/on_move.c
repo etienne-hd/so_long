@@ -6,11 +6,11 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:53:00 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 08:53:40 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:22:24 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "game.h"
 
 static int	move_player(t_move move, t_game *game)
 {
@@ -49,7 +49,7 @@ void	game_on_move(t_move move, t_game *game)
 		game->player->move++;
 		ft_printf("%d\n", game->player->move);
 		if (tile == COLLECTIBLE)
-			game_on_collect(game, game->player->pos.x, game->player->pos.y);
+			game_on_collect(game, game->player->pos);
 		else if (tile == EXIT)
 			game_on_exit(game);
 	}

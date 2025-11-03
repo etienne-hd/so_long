@@ -6,11 +6,11 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 08:57:22 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 08:59:02 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:24:59 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "game.h"
 
 void game_window_hook(int event, void *param)
 {

@@ -6,12 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:36:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 04:51:20 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:20:40 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <stddef.h>
+#include <stdlib.h>
+#include "game.h"
+#include "texture.h"
 
 static void	destroy(t_game *game)
 {

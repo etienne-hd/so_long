@@ -6,13 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 00:08:42 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:09:28 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_H
 # define PLAYER_H
-#include "so_long.h"
+#include <stdlib.h>
+#include "location.h"
 
 typedef struct	s_player
 {

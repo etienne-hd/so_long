@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:35:51 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 08:21:36 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:16:46 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # ifndef TEXTURE_SIZE
 #  define TEXTURE_SIZE 32
 # endif
-# include "so_long.h"
+# include "mlx.h"
+# include "libft.h"
 
 typedef struct	s_game t_game;
 

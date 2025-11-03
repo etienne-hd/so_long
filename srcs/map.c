@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:26:02 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:14:38 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "map.h"
+#include "libft.h"
 
 t_map	new_map()
 {

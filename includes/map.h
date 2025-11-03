@@ -6,13 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:24:04 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:15:38 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MAP_H
 # define MAP_H
-#include "so_long.h"
+# include "location.h"
 
 typedef enum e_tile
 {
@@ -30,6 +30,7 @@ typedef struct	s_map
 	size_t		collectible;
 	char		**grid;
 }				t_map;
+t_map	load_map(char *path);
 t_map	new_map();
 void	destroy_map(t_map *map);
 t_map	clone_map(const t_map src_map);

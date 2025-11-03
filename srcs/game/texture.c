@@ -6,11 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:41:39 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 08:44:39 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:20:05 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <stdlib.h>
+#include "texture.h"
+#include "game.h"
 
 const char *textures[] = {
 	"assets/air.bmp", "assets/wall.bmp", "assets/collectible.bmp",

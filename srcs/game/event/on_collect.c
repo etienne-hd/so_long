@@ -6,14 +6,15 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 01:12:26 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:25:09 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:22:27 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "game.h"
+#include "location.h"
 
-void	game_on_collect(t_game *game, size_t x, size_t y)
+void	game_on_collect(t_game *game, t_location location)
 {
 	game->map->collectible--;
-	game->map->grid[y][x] = AIR;
+	game->map->grid[location.y][location.x] = AIR;
 }

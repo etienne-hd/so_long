@@ -6,11 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:59:51 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:25:32 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:16:21 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <fcntl.h>
+#include "map.h"
+#include "libft.h"
+#include "utils.h"
 
 static int	init_map(t_map *map, char *path)
 {

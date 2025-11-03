@@ -6,11 +6,11 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:13:17 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 08:58:20 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:23:31 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "game.h"
 
 void	game_key_hook(int key, void *param)
 {

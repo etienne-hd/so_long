@@ -6,11 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:22:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 08:16:31 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:21:07 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "map.h"
+#include "game.h"
+#include "texture.h"
 
 static void	put_tile(t_game *game, char tile, size_t x, size_t y)
 {

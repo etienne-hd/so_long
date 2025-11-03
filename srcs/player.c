@@ -6,11 +6,12 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 00:19:31 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:16:57 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <stdlib.h>
+#include "player.h"
 
 t_player	new_player(size_t x, size_t y)
 {

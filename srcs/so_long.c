@@ -6,11 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:50:03 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:24:55 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:17:28 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "map.h"
+#include "player.h"
+#include "game.h"
+#include "libft.h"
 
 int	main(int argc, char **argv)
 {

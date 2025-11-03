@@ -6,11 +6,11 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 01:20:13 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/02 01:24:44 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:21:27 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "game.h"
 
 void	game_on_exit(t_game *game)
 {

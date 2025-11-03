@@ -6,11 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 00:24:35 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:18:31 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <stdlib.h>
+#include "map.h"
+#include "libft.h"
 
 static int	check_border(t_map map)
 {

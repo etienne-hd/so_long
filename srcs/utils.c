@@ -6,11 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 21:54:56 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 00:51:44 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 17:17:57 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 size_t	ft_linelen(char *str)
 {
