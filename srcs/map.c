@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 01:54:25 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 00:26:02 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_map	new_map()
 	map.start.x = 0;
 	map.start.y = 0;
 	map.collectible = 0;
-	map.map = NULL;
+	map.grid = NULL;
 	return (map);
 }
 
@@ -30,10 +30,10 @@ void	destroy_map(t_map *map)
 	size_t	i;
 
 	i = 0;
-	while (i < map->size.y && map->map)
-		free(map->map[i++]);
-	free(map->map);
-	map->map = NULL;
+	while (i < map->size.y && map->grid)
+		free(map->grid[i++]);
+	free(map->grid);
+	map->grid = NULL;
 }
 
 t_map	clone_map(const t_map map)
@@ -42,14 +42,14 @@ t_map	clone_map(const t_map map)
 	size_t	i;
 	
 	clone_map = map;
-	clone_map.map = ft_calloc(map.size.y, sizeof(char *));
-	if (!clone_map.map)
+	clone_map.grid = ft_calloc(map.size.y, sizeof(char *));
+	if (!clone_map.grid)
 		return (clone_map);
 	i = 0;
 	while (i < map.size.y)
 	{
-		clone_map.map[i] = ft_strdup(map.map[i]);
-		if (clone_map.map[i] == NULL)
+		clone_map.grid[i] = ft_strdup(map.grid[i]);
+		if (clone_map.grid[i] == NULL)
 		{
 			destroy_map(&clone_map);
 			return (clone_map);
@@ -59,11 +59,16 @@ t_map	clone_map(const t_map map)
 	return (clone_map);
 }
 
+t_tile	get_tile(const t_map map, size_t x, size_t y)
+{
+	return (map.grid[y][x]);
+}
+
 void	show_map(t_map map)
 {
 	size_t	i;
 
-	if (map.map == NULL)
+	if (map.grid == NULL)
 	{
 		ft_dprintf(2, "Error\nUnable to show map (map not loaded).\n");
 		return ;
@@ -72,7 +77,7 @@ void	show_map(t_map map)
 	i = 0;
 	while (i < map.size.y)
 	{
-		write(1, map.map[i], map.size.x);
+		write(1, map.grid[i], map.size.x);
 		write(1, "\n", 1);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 02:12:39 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 00:24:35 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ static int	check_border(t_map map)
 
 	i = 0;
 	while (
-		i < map.size.x && map.map[0][i] == WALL
-		&& map.map[map.size.y - 1][i] == WALL
+		i < map.size.x && map.grid[0][i] == WALL
+		&& map.grid[map.size.y - 1][i] == WALL
 	)
 		i++;
 	if (i != map.size.x)
 		return (0);
 	i = 0;
 	while (
-		i < map.size.y && map.map[i][0] == WALL
-		&& map.map[i][map.size.x - 1] == WALL
+		i < map.size.y && map.grid[i][0] == WALL
+		&& map.grid[i][map.size.x - 1] == WALL
 	)
 		i++;
 	if (i != map.size.y)
@@ -50,11 +50,11 @@ static int	check_tile(t_map map)
 		j = 1;
 		while (j < map.size.x - 1)
 		{
-			if (map.map[i][j] == START)
+			if (map.grid[i][j] == START)
 				tile[0]++;
-			else if (map.map[i][j] == EXIT)
+			else if (map.grid[i][j] == EXIT)
 				tile[1]++;
-			else if (map.map[i][j] == COLLECTIBLE)
+			else if (map.grid[i][j] == COLLECTIBLE)
 				tile[2]++;
 			j++;
 		}
@@ -75,11 +75,11 @@ static int	invalid_tile(t_map map)
 		while (j < map.size.x - 1)
 		{
 			if (!(
-				map.map[i][j] == AIR
-				|| map.map[i][j] == WALL
-				|| map.map[i][j] == COLLECTIBLE
-				|| map.map[i][j] == EXIT
-				|| map.map[i][j] == START
+				map.grid[i][j] == AIR
+				|| map.grid[i][j] == WALL
+				|| map.grid[i][j] == COLLECTIBLE
+				|| map.grid[i][j] == EXIT
+				|| map.grid[i][j] == START
 			))
 				return (0);
 			j++;

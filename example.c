@@ -164,7 +164,7 @@ int main(void)
 	printf("screen size : %dx%d\n", w, h);
 
 	mlx_set_fps_goal(mlx.mlx, 60);
-
+	
 	mlx_on_event(mlx.mlx, mlx.win, MLX_KEYDOWN, key_hook, &mlx);
 	mlx_on_event(mlx.mlx, mlx.win, MLX_WINDOW_EVENT, window_hook, &mlx);
 

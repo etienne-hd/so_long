@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 13:23:34 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/30 22:37:00 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/01 17:05:58 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static const char	*get_format(const char *s)
 		i = 0;
 		while (formats[i])
 		{
-			if (ft_startwith(s, formats[i]))
+			if (printf_ft_startwith(s, formats[i]))
 				return (formats[i]);
 			i++;
 		}
@@ -31,7 +31,7 @@ static const char	*get_format(const char *s)
 	return (NULL);
 }
 
-static void	handle_format(int fd, va_list *args, const char *format, int *count)
+static void	handle_format(va_list *args, int fd, const char *format, int *count)
 {
 	if (!ft_strcmp("%c", format))
 		ft_putchar(fd, va_arg(*args, int), count);
@@ -71,7 +71,7 @@ int	ft_printf(const char *s, ...)
 		if (format)
 		{
 			i += ft_strlen(format);
-			handle_format(1, &args, format, &count);
+			handle_format(&args, 1, format, &count);
 		}
 		else
 		{
@@ -100,7 +100,7 @@ int	ft_dprintf(int fd, const char *s, ...)
 		if (format)
 		{
 			i += ft_strlen(format);
-			handle_format(fd, &args, format, &count);
+			handle_format(&args, fd, format, &count);
 		}
 		else
 		{

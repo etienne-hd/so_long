@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 01:56:08 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 00:24:04 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_map
 	t_location	size;
 	t_location	start;
 	size_t		collectible;
-	char		**map;
+	char		**grid;
 }				t_map;
 t_map	new_map();
 void	destroy_map(t_map *map);
@@ -36,5 +36,6 @@ t_map	clone_map(const t_map src_map);
 void	show_map(t_map map);
 int		is_valid_map(t_map map);
 int		map_flood_fill(t_map map);
+t_tile	get_tile(const t_map map, size_t x, size_t y);
 
 #endif

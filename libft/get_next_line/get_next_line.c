@@ -6,13 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 16:23:11 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/31 19:16:56 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/01 17:02:57 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*extract_line(char **str)
+static char	*extract_line(char **str)
 {
 	char	*endline;
 	char	*line;
@@ -30,7 +30,7 @@ char	*extract_line(char **str)
 	return (line);
 }
 
-int	read_fd(char **str, int fd)
+static int	read_fd(char **str, int fd)
 {
 	char		*buffer;
 	int			code;
@@ -50,7 +50,7 @@ int	read_fd(char **str, int fd)
 	return (code);
 }
 
-void	free_str(char **str)
+static void	free_str(char **str)
 {
 	free(*str);
 	*str = NULL;
@@ -58,27 +58,27 @@ void	free_str(char **str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[1024];
 	char		*line;
 	int			code;
 
-	if (fd < 0)
+	if (fd < 0 || fd >= 1024)
 		return (NULL);
-	while (!gnl_ft_strchr(str, '\n'))
+	while (!gnl_ft_strchr(str[fd], '\n'))
 	{
-		code = read_fd(&str, fd);
+		code = read_fd(&str[fd], fd);
 		if (code <= 0)
 		{
 			line = NULL;
-			if (str && gnl_ft_strlen(str) > 0 && code != -1)
-				line = gnl_ft_strndup(str, gnl_ft_strlen(str));
-			if (str)
-				free_str(&str);
+			if (str[fd] && gnl_ft_strlen(str[fd]) > 0 && code != -1)
+				line = gnl_ft_strndup(str[fd], gnl_ft_strlen(str[fd]));
+			if (str[fd])
+				free_str(&str[fd]);
 			return (line);
 		}
 	}
-	line = extract_line(&str);
-	if (!line)
-		free_str(&str);
+	line = extract_line(&str[fd]);
+	if (!line || fd == 0)
+		free_str(&str[fd]);
 	return (line);
 }

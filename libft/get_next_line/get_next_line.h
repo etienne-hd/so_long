@@ -6,14 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 16:04:57 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/31 19:08:44 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/01 16:56:52 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1024
 # endif
 # include <stdio.h>
 # include <stdlib.h>

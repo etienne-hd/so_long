@@ -1,40 +1,96 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I ft_printf/includes/
+CFLAGS = -Wall -Wextra -Werror -I ft_printf/includes/ -I get_next_line/get_next_line.h
 NAME = libft.a
 HEADER = libft.h ft_printf/includes/ft_printf.h get_next_line/get_next_line.h
 
-SRCS = ft_issign.c ft_isspace.c ft_strlcat.c ft_putnbr_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_putchar_fd.c \
-	ft_striteri.c ft_strmapi.c ft_itoa.c ft_split.c ft_strtrim.c ft_strjoin.c \
-	ft_substr.c ft_strdup.c ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
-	ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c \
-	ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcpy.c ft_strlen.c \
-	ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_endwith.c \
-	ft_printf/srcs/ft_printf.c \
-	ft_printf/srcs/ft_putaddr.c \
-	ft_printf/srcs/ft_putchar.c \
-	ft_printf/srcs/ft_putnbr.c \
-	ft_printf/srcs/ft_putnbrhexa.c \
-	ft_printf/srcs/ft_putstr.c \
-	ft_printf/srcs/ft_putunbr.c \
-	ft_printf/srcs/ft_startwith.c \
-	ft_printf/srcs/ft_strcmp.c \
-	ft_printf/srcs/ft_strlen.c \
-	get_next_line/get_next_line.c \
-	get_next_line/get_next_line_utils.c 
+SRCS_CHARACTER = character/ft_isalnum.c \
+		character/ft_isalpha.c \
+		character/ft_isascii.c \
+		character/ft_isdigit.c \
+		character/ft_isprint.c \
+		character/ft_isspace.c \
+		character/ft_issign.c \
+		character/ft_tolower.c \
+		character/ft_toupper.c
 
-BONUS_SRCS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+SRCS_STRING = string/ft_atoi.c \
+		string/ft_itoa.c \
+		string/ft_split.c \
+		string/ft_strchr.c \
+		string/ft_strrchr.c \
+		string/ft_strdup.c \
+		string/ft_striteri.c \
+		string/ft_strjoin.c \
+		string/ft_strlcat.c \
+		string/ft_strlcpy.c \
+		string/ft_strlen.c \
+		string/ft_strmapi.c \
+		string/ft_strncmp.c \
+		string/ft_strnstr.c \
+		string/ft_strtrim.c \
+		string/ft_substr.c \
+		string/ft_startwith.c \
+		string/ft_endwith.c
+
+SRCS_MEMORY = memory/ft_bzero.c \
+		memory/ft_calloc.c \
+		memory/ft_memchr.c \
+		memory/ft_memcmp.c \
+		memory/ft_memcpy.c \
+		memory/ft_memmove.c \
+		memory/ft_memset.c
+
+SRCS_PUT = put/ft_putchar_fd.c \
+		put/ft_putendl_fd.c \
+		put/ft_putnbr_fd.c \
+		put/ft_putstr_fd.c
+
+SRCS_LIST = list/ft_lstadd_back.c \
+		list/ft_lstadd_front.c \
+		list/ft_lstclear.c \
+		list/ft_lstdelone.c \
+		list/ft_lstiter.c \
+		list/ft_lstlast.c \
+		list/ft_lstmap.c \
+		list/ft_lstnew.c \
+		list/ft_lstsize.c
+
+SRCS_DICT = dict/ft_dict_new.c \
+		dict/ft_dict_set.c \
+		dict/ft_dict_unset.c \
+		dict/ft_dict_get.c \
+		dict/ft_dict_get_node.c \
+		dict/ft_dict_clear.c
+
+SRCS_PRINTF = ft_printf/srcs/ft_printf.c \
+		ft_printf/srcs/ft_putaddr.c \
+		ft_printf/srcs/ft_putchar.c \
+		ft_printf/srcs/ft_putnbr.c \
+		ft_printf/srcs/ft_putnbrhexa.c \
+		ft_printf/srcs/ft_putstr.c \
+		ft_printf/srcs/ft_putunbr.c \
+		ft_printf/srcs/ft_startwith.c \
+		ft_printf/srcs/ft_strcmp.c \
+		ft_printf/srcs/ft_strlen.c
+
+SRCS_GET_NEXT_LINE = get_next_line/get_next_line.c \
+		get_next_line/get_next_line_utils.c
+
+SRCS = $(SRCS_CHARACTER) \
+	$(SRCS_STRING) \
+	$(SRCS_MEMORY) \
+	$(SRCS_PUT) \
+	$(SRCS_LIST) \
+	$(SRCS_DICT) \
+	$(SRCS_PRINTF) \
+	$(SRCS_GET_NEXT_LINE)
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -47,4 +103,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

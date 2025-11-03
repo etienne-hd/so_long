@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:59:51 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 02:14:16 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 00:25:32 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static int	init_map(t_map *map, char *path)
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (1);
-	map->map = malloc(map->size.y * sizeof(char *));
+	map->grid = malloc(map->size.y * sizeof(char *));
 	y = 0;
-	while (1 && map->map)
+	while (1 && map->grid)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break;
-		map->map[y] = line;
+		map->grid[y] = line;
 		y++;
 	}
 	close(fd);
-	if (!map->map)
+	if (!map->grid)
 		return (1);
 	return (0);
 }
@@ -48,9 +48,9 @@ static void	init_map_tile(t_map *map)
 		j = 1;
 		while (j < map->size.x - 1)
 		{
-			if (map->map[i][j] == COLLECTIBLE)
+			if (map->grid[i][j] == COLLECTIBLE)
 				map->collectible++;
-			if (map->map[i][j] == START)
+			if (map->grid[i][j] == START)
 			{
 				map->start.x = j;
 				map->start.y = i;

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/31 23:10:12 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/02 00:19:31 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_player	new_player(size_t x, size_t y)
 {
 	t_player	player;
 
-	player.pos.x = 0;
-	player.pos.y = 0;
+	player.pos.x = x;
+	player.pos.y = y;
+	player.move = 0;
 	return (player);
 }

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 02:08:02 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 00:31:05 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	is_playable(t_map map)
 		while (x < map.size.x - 1)
 		{
 			if (
-				map.map[y][x] == START
-				|| map.map[y][x] == EXIT
-				|| map.map[y][x] == COLLECTIBLE
+				map.grid[y][x] == START
+				|| map.grid[y][x] == EXIT
+				|| map.grid[y][x] == COLLECTIBLE
 			)
 				return (0);
 			x++;
@@ -38,14 +38,14 @@ static int	is_playable(t_map map)
 
 static void	process(t_map *map, size_t x, size_t y)
 {
-	map->map[y][x] = 'X';
-	if (map->map[y][x + 1] != WALL && map->map[y][x + 1] != FILL)
+	map->grid[y][x] = 'X';
+	if (map->grid[y][x + 1] != WALL && map->grid[y][x + 1] != FILL)
 		process(map, x + 1, y);
-	if (map->map[y][x - 1] != WALL && map->map[y][x - 1] != FILL)
+	if (map->grid[y][x - 1] != WALL && map->grid[y][x - 1] != FILL)
 		process(map, x - 1, y);
-	if (map->map[y + 1][x] != WALL && map->map[y + 1][x] != FILL)
+	if (map->grid[y + 1][x] != WALL && map->grid[y + 1][x] != FILL)
 		process(map, x, y + 1);
-	if (map->map[y - 1][x] != WALL && map->map[y - 1][x] != FILL)
+	if (map->grid[y - 1][x] != WALL && map->grid[y - 1][x] != FILL)
 		process(map, x, y - 1);
 }
 
@@ -55,7 +55,7 @@ int	map_flood_fill(t_map map)
 	int		valid;
 
 	flood_fill_map = clone_map(map);
-	if (flood_fill_map.map == NULL)
+	if (flood_fill_map.grid == NULL)
 	{
 		ft_dprintf(2, "Error\nAllocation failed.\n");
 		return (1);

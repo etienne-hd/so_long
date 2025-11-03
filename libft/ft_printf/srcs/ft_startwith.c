@@ -6,13 +6,13 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:09:57 by ehode             #+#    #+#             */
-/*   Updated: 2025/10/30 22:38:41 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/01 16:58:14 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_startwith(const char *s, const char *val)
+int	printf_ft_startwith(const char *s, const char *val)
 {
 	size_t	i;
 

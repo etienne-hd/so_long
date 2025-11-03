@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:50:03 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/01 02:14:38 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/03 00:24:55 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,23 @@
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_map		map;
+	t_player	player;
 
 	if (argc != 2)
+	{
+		ft_printf("Usage: %s <*.ber>\n", argv[0]);
 		return (1);
+	}
 	map = load_map(argv[1]);
-	if (map.map == NULL)
+	if (map.grid == NULL)
 		return (1);
 	if (!is_valid_map(map))
 	{
 		destroy_map(&map);
 		return (1);
 	}
-	show_map(map);
+	player = new_player(map.start.x, map.start.y);
+	start_game(&map, &player);
 	destroy_map(&map);
 }
