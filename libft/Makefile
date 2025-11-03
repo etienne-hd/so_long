@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I ft_printf/includes/ -I get_next_line/get_next_line.h
+CFLAGS = -Wall -Wextra -Werror -I ft_printf/includes/ -I get_next_line/ -I .
 NAME = libft.a
 HEADER = libft.h ft_printf/includes/ft_printf.h get_next_line/get_next_line.h
 
