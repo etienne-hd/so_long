@@ -36,7 +36,7 @@ LDFLAGS = $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
 all: $(NAME)
 
 $(MLX_DIR)libmlx.so:
-	git clone https://github.com/seekrs/MacroLibX.git mlx --depth=1
+	git clone https://github.com/seekrs/MacroLibX.git -b v2.2.1 mlx --depth=1
 	$(MAKE) -C mlx -j
 
 
