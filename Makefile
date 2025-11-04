@@ -65,7 +65,7 @@ all: $(NAME)
 bonus: $(NAME_BONUS)
 
 $(MLX_DIR)libmlx.so:
-	git clone https://github.com/seekrs/MacroLibX.git -b v2.2.0 mlx --depth=1
+	git clone https://github.com/seekrs/MacroLibX.git -b v2.2.2 mlx --depth=1
 	$(MAKE) -C mlx -j
 
 $(NAME_BONUS): $(MLX_DIR)libmlx.so $(OBJS_BONUS) $(LIBFT)
@@ -88,6 +88,7 @@ $(LIBFT):
 fclean: clean
 	rm -rf $(MLX_DIR)
 	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
 	$(MAKE) -C libft fclean
 
 clean:
