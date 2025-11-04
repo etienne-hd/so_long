@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:53:00 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:22:24 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 01:47:33 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	game_on_move(t_move move, t_game *game)
 	int		has_moved;
 	t_tile	tile;
 
+	game->player->current_move = move;
 	has_moved = move_player(move, game);
 	tile = get_tile(*game->map, game->player->pos.x, game->player->pos.y);
 	if (has_moved)

@@ -6,25 +6,41 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:45:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 21:51:44 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 05:24:31 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "map.h"
+#include "location.h"
 #include "game.h"
 #include "texture.h"
 
 static void	put_tile(t_game *game, char tile, size_t x, size_t y)
 {
+	t_texture	*texture;
+	t_location	location;
+
+	location.x = x;
+	location.y = y;
 	if (tile == WALL)
-		mlx_put_image_to_window(game->mlx, game->win, get_texture(game, "assets/wall.bmp"), x, y);
-	if (tile == AIR || tile == COLLECTIBLE || tile == START || tile == EXIT)
-		mlx_put_image_to_window(game->mlx, game->win, get_texture(game, "assets/air.bmp"), x, y);
+	{
+		game_render_wall(game, x, y);
+		return ;
+	}
+	if (tile == AIR)
+		texture = get_texture(game, "assets/air.png");
+	if (tile == COLLECTIBLE || tile == START || tile == EXIT)
+		put_tile(game, AIR, x, y);
 	if (tile == COLLECTIBLE)
-		mlx_put_image_to_window(game->mlx, game->win, get_texture(game, "assets/collectible.bmp"), x, y);
+	{
+		game_render_collectible(game, x, y);
+		return ;
+	}
 	if (tile == START)
-		mlx_put_image_to_window(game->mlx, game->win, get_texture(game, "assets/start.bmp"), x, y);
+		texture = get_texture(game, "assets/air.png");
 	if (tile == EXIT)
-		mlx_put_image_to_window(game->mlx, game->win, get_texture(game, "assets/exit.bmp"), x, y);
+		texture = get_texture(game, "assets/exit.png");
+	game_render(game, location, texture, 0);
 }
 
 void	game_render_map(t_game *game)
@@ -39,7 +55,7 @@ void	game_render_map(t_game *game)
 		while (x < game->map->size.x)
 		{
 			put_tile(game, get_tile(*game->map, x, y),
-				x * TEXTURE_SIZE, y * TEXTURE_SIZE);
+				x, y);
 			x++;
 		}
 		y++;

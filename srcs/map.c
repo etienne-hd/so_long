@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:14:38 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 01:57:58 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ t_map	new_map()
 {
 	t_map	map;
 
-	map.size.x = 0;
-	map.size.y = 0;
-	map.start.x = 0;
-	map.start.y = 0;
-	map.collectible = 0;
-	map.grid = NULL;
+	ft_bzero(&map, sizeof(t_map));
 	return (map);
 }
 

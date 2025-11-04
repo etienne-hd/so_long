@@ -6,16 +6,19 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:32:52 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 21:51:01 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 05:17:00 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
+# include "mlx_extended.h"
 # include "mlx.h"
+#include "player.h"
+# include "texture.h"
 # include "map.h"
-# include "player.h"
 # include "libft.h"
+# include "move.h"
 
 typedef struct	s_game
 {
@@ -24,14 +27,10 @@ typedef struct	s_game
 	t_map		*map;
 	t_player	*player;
 	t_dict		*textures;
+	size_t		frame;
+	long int	seed;
 }				t_game;
-typedef enum e_move
-{
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-}			t_move;
+
 void	start_game(t_map *map, t_player *player);
 
 // event
@@ -47,5 +46,9 @@ void 	game_window_hook(int event, void *param);
 // render
 void	game_render_map(t_game *game);
 void	game_render_player(t_game *game);
+void	game_render_wall(t_game *game, long int x, long int y);
+void	game_render_collectible(t_game *game, long int x, long int y);
+void	game_render(t_game *game, t_location location,
+	t_texture *texture, float angle);
 
 #endif

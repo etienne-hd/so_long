@@ -6,13 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:36:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 18:38:46 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 05:27:58 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "texture.h"
 #include "game.h"
+#include "utils.h"
 
 static void	destroy(t_game *game)
 {
@@ -38,6 +39,8 @@ void	start_game(t_map *map, t_player *player)
 	t_game					game;
 	mlx_window_create_info	info;
 
+	game.seed = get_timestamp();
+	game.frame = 0;
 	game.map = map;
 	game.player = player;
 	game.mlx = mlx_init();

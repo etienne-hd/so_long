@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:41:39 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 21:30:23 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 05:27:38 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 #include "game.h"
 
 const char *g_textures[] = {
-	"assets/air.bmp",
-	"assets/wall.bmp",
-	"assets/collectible.bmp",
-	"assets/start.bmp",
-	"assets/exit.bmp",
-	"assets/player.bmp",
+	"assets/air.png",
+	"assets/wall_surrounded.png",
+	"assets/wall_side.png",
+	"assets/wall_corner.png",
+	"assets/collectible1.png",
+	"assets/collectible2.png",
+	"assets/collectible3.png",
+	"assets/collectible4.png",
+	"assets/exit.png",
+	"assets/player1.png",
+	"assets/player2.png",
+	"assets/player3.png",
 	NULL
 };
 
@@ -53,12 +59,12 @@ t_dict	*load_textures(t_game *game)
 	return (dict);
 }
 
-mlx_image	get_texture(t_game *game, const char *path)
+t_texture	*get_texture(t_game *game, const char *path)
 {
 	t_texture	*texture;
 
 	texture = ft_dict_get(game->textures, path);
-	return (texture->texture);
+	return (texture);
 }
 
 int	check_textures(t_game *game)

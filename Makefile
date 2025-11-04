@@ -18,7 +18,10 @@ SRCS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)game/hook/key_hook.c \
 		$(SRC_DIR)game/hook/window_hook.c \
 		$(SRC_DIR)game/render/map.c \
-		$(SRC_DIR)game/render/player.c
+		$(SRC_DIR)game/render/player.c \
+		$(SRC_DIR)game/render/wall.c \
+		$(SRC_DIR)game/render/collectible.c \
+		$(SRC_DIR)game/render/render.c
 
 OBJ_DIR = objs/
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)

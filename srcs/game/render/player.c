@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 21:44:37 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 21:51:47 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 05:36:27 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,22 @@
 
 void	game_render_player(t_game *game)
 {
-	mlx_put_image_to_window(
-		game->mlx, game->win, 
-		get_texture(game, "assets/player.bmp"), 
-		game->player->pos.x * TEXTURE_SIZE, 
-		game->player->pos.y * TEXTURE_SIZE
-	);
+	t_texture	*texture;
+
+	if (game->frame % 12 < 3)
+		texture = get_texture(game, "assets/player1.png");
+	else if (game->frame % 12 < 6)
+		texture = get_texture(game, "assets/player2.png");
+	else if (game->frame % 12 < 9)
+		texture = get_texture(game, "assets/player3.png");
+	else
+		texture = get_texture(game, "assets/player2.png");
+	if (game->player->current_move == DOWN)
+		game_render(game, game->player->pos, texture, 0.0f + 90);
+	else if (game->player->current_move == LEFT)
+		game_render(game, game->player->pos, texture, 90.0f + 90);
+	else if (game->player->current_move == UP)
+		game_render(game, game->player->pos, texture, 180.0f + 90);
+	else if (game->player->current_move == RIGHT)
+		game_render(game, game->player->pos, texture, 270.0f + 90);
 }

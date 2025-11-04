@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.h                                           :+:      :+:    :+:   */
+/*   move.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 01:47:18 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/04 01:45:43 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/04 01:46:01 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_H
-# define PLAYER_H
-#include <stdlib.h>
-#include "location.h"
-# include "move.h"
+#ifndef MOVE_H
+# define MOVE_H
 
-typedef struct	s_player
+typedef enum e_move
 {
-	t_location	pos;
-	size_t		move;
-	t_move		current_move;
-}				t_player;
-t_player	new_player(size_t x, size_t y);
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+}			t_move;
 
 #endif

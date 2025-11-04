@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.h                                           :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 01:47:18 by ehode            ###   ########.fr       */
+/*   Created: 2025/11/04 01:23:10 by ehode             #+#    #+#             */
+/*   Updated: 2025/11/04 02:52:12 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_H
-# define PLAYER_H
-#include <stdlib.h>
-#include "location.h"
-# include "move.h"
+#include "game.h"
+#include "texture.h"
 
-typedef struct	s_player
+void	game_render(t_game *game, t_location location,
+	t_texture *texture, float angle)
 {
-	t_location	pos;
-	size_t		move;
-	t_move		current_move;
-}				t_player;
-t_player	new_player(size_t x, size_t y);
-
-#endif
+	if (texture->x == 0 || texture->y == 0)
+		return ;
+	mlx_put_transformed_image_to_window(
+		game->mlx, game->win, 
+		texture->texture, 
+		location.x * TEXTURE_SIZE, 
+		location.y * TEXTURE_SIZE,
+		(float)TEXTURE_SIZE / texture->x,
+		(float)TEXTURE_SIZE / texture->y,
+		angle
+	);
+}
