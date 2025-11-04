@@ -34,7 +34,7 @@ SRCS_BONUS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)game/texture.c \
 		$(SRC_DIR)game/game.c \
 		$(SRC_DIR)game/event/on_move.c \
-		$(SRC_DIR)game/event/on_update.c \
+		$(SRC_DIR)game/event/on_update_bonus.c \
 		$(SRC_DIR)game/event/on_collect.c \
 		$(SRC_DIR)game/event/on_exit.c \
 		$(SRC_DIR)game/hook/key_hook.c \
@@ -43,6 +43,7 @@ SRCS_BONUS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)game/render/player.c \
 		$(SRC_DIR)game/render/wall.c \
 		$(SRC_DIR)game/render/collectible.c \
+		$(SRC_DIR)game/render/move_count_bonus.c \
 		$(SRC_DIR)game/render/render.c
 
 OBJ_DIR = objs/
