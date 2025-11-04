@@ -4,6 +4,7 @@ mlx
 .vscode
 objs
 so_long
+so_long_bonus
 example.c
 .cache
 *.a

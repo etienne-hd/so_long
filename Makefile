@@ -1,5 +1,6 @@
 CC=cc
 NAME = so_long
+NAME_BONUS = so_long_bonus
 MLX_DIR = mlx/
 SRC_DIR = srcs/
 SRCS = $(SRC_DIR)so_long.c \
@@ -23,8 +24,30 @@ SRCS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)game/render/collectible.c \
 		$(SRC_DIR)game/render/render.c
 
+SRCS_BONUS = $(SRC_DIR)so_long.c \
+		$(SRC_DIR)parser.c \
+		$(SRC_DIR)map.c \
+		$(SRC_DIR)map_checker.c \
+		$(SRC_DIR)map_flood_fill.c \
+		$(SRC_DIR)utils.c \
+		$(SRC_DIR)player.c \
+		$(SRC_DIR)game/texture.c \
+		$(SRC_DIR)game/game.c \
+		$(SRC_DIR)game/event/on_move.c \
+		$(SRC_DIR)game/event/on_update.c \
+		$(SRC_DIR)game/event/on_collect.c \
+		$(SRC_DIR)game/event/on_exit.c \
+		$(SRC_DIR)game/hook/key_hook.c \
+		$(SRC_DIR)game/hook/window_hook.c \
+		$(SRC_DIR)game/render/map.c \
+		$(SRC_DIR)game/render/player.c \
+		$(SRC_DIR)game/render/wall.c \
+		$(SRC_DIR)game/render/collectible.c \
+		$(SRC_DIR)game/render/render.c
+
 OBJ_DIR = objs/
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+OBJS_BONUS = $(SRCS_BONUS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIBFT = ./libft/libft.a
 
 CFLAGS = -g \
@@ -38,10 +61,14 @@ LDFLAGS = $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
 
 all: $(NAME)
 
+bonus: $(NAME_BONUS)
+
 $(MLX_DIR)libmlx.so:
-	git clone https://github.com/seekrs/MacroLibX.git -b v2.2.1 mlx --depth=1
+	git clone https://github.com/seekrs/MacroLibX.git -b v2.2.0 mlx --depth=1
 	$(MAKE) -C mlx -j
 
+$(NAME_BONUS): $(MLX_DIR)libmlx.so $(OBJS_BONUS) $(LIBFT)
+	$(CC) $(OBJS_BONUS) $(LDFLAGS) -o $(NAME_BONUS)
 
 $(NAME): $(MLX_DIR)libmlx.so $(OBJS) $(LIBFT)
 	$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
@@ -74,4 +101,4 @@ run2: all
 
 re: fclean all
 
-.PHONY: all fclean clean run run2 re
+.PHONY: all fclean clean run run2 re bonus
