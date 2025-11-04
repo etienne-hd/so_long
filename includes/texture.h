@@ -6,14 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:35:51 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 01:21:44 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 18:00:07 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEXTURE_H
 # define TEXTURE_H
 # ifndef TEXTURE_SIZE
-#  define TEXTURE_SIZE 64
+#  define TEXTURE_SIZE 48
 # endif
 # include "mlx.h"
 # include "libft.h"

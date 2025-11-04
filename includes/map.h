@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:15:38 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 18:08:34 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ t_map	new_map();
 void	destroy_map(t_map *map);
 t_map	clone_map(const t_map src_map);
 void	show_map(t_map map);
-int		is_valid_map(t_map map);
-int		map_flood_fill(t_map map);
+int		is_valid_map(t_map *map);
+int		map_flood_fill(t_map *map);
 t_tile	get_tile(const t_map map, size_t x, size_t y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:50:03 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 21:54:01 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 18:08:42 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "player.h"
 #include "game.h"
 #include "libft.h"
+#include "texture.h"
 
 int	main(int argc, char **argv)
 {
@@ -28,7 +29,7 @@ int	main(int argc, char **argv)
 	map = load_map(argv[1]);
 	if (map.grid == NULL)
 		return (1);
-	if (!is_valid_map(map))
+	if (!is_valid_map(&map))
 	{
 		destroy_map(&map);
 		return (1);

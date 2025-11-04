@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:11:12 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 18:08:15 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static int	is_playable(t_map map)
 		while (x < map.size.x - 1)
 		{
 			if (
-				map.grid[y][x] == START
-				|| map.grid[y][x] == EXIT
+				map.grid[y][x] == EXIT
 				|| map.grid[y][x] == COLLECTIBLE
 			)
 				return (0);
@@ -50,18 +49,18 @@ static void	process(t_map *map, size_t x, size_t y)
 		process(map, x, y - 1);
 }
 
-int	map_flood_fill(t_map map)
+int	map_flood_fill(t_map *map)
 {
 	t_map	flood_fill_map;
 	int		valid;
 
-	flood_fill_map = clone_map(map);
+	flood_fill_map = clone_map(*map);
 	if (flood_fill_map.grid == NULL)
 	{
 		ft_dprintf(2, "Error\nAllocation failed.\n");
 		return (1);
 	}
-	process(&flood_fill_map, map.start.x, map.start.y);
+	process(&flood_fill_map, map->start.x, map->start.y);
 	valid = is_playable(flood_fill_map);
 	destroy_map(&flood_fill_map);
 	return (valid);

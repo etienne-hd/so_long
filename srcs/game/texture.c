@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:41:39 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 05:27:38 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 16:55:56 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,14 @@ t_texture	*get_texture(t_game *game, const char *path)
 
 int	check_textures(t_game *game)
 {
-	size_t	i;
+	size_t		i;
+	t_texture	*texture;
 
 	i = 0;
 	while (g_textures[i])
 	{
-		if (!ft_dict_get(game->textures, g_textures[i]))
+		texture = ft_dict_get(game->textures, g_textures[i]);
+		if (!texture->texture)
 			return (0);
 		i++;
 	}
