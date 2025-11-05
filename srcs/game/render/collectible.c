@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 05:01:46 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 03:25:16 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 04:31:58 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	game_render_collectible(t_game *game, long int x, long int y)
 
 	location.x = x;
 	location.y = y;
-	value = (game->seed + y + x % 4);
+	value = game->seed + y + x;
 	if (value % 4 == 0)
 		texture = get_texture(game, "assets/collectible1.png");
 	else if (value % 4 == 1)
 		texture = get_texture(game, "assets/collectible2.png");
 	else if (value % 4 == 2)
 		texture = get_texture(game, "assets/collectible3.png");
-	else if (value % 4 == 3)
+	else
 		texture = get_texture(game, "assets/collectible4.png");
 	game_render(game, location, texture, 0.0f);
 }
