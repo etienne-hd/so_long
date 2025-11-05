@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:53:00 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 01:47:33 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:22:58 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ static int	move_player(t_move move, t_game *game)
 	t_location	location;
 
 	location = game->player->pos;
-	if (move == UP && 
-		get_tile(*game->map, game->player->pos.x, 
+	if (move == UP
+		&& get_tile(*game->map, game->player->pos.x,
 			game->player->pos.y - 1) != WALL)
 		game->player->pos.y--;
-	if (move == DOWN && 
-		get_tile(*game->map, game->player->pos.x, 
+	if (move == DOWN
+		&& get_tile(*game->map, game->player->pos.x,
 			game->player->pos.y + 1) != WALL)
 		game->player->pos.y++;
-	if (move == LEFT && 
-		get_tile(*game->map, game->player->pos.x - 1, 
+	if (move == LEFT
+		&& get_tile(*game->map, game->player->pos.x - 1,
 			game->player->pos.y) != WALL)
 		game->player->pos.x--;
-	if (move == RIGHT && 
-		get_tile(*game->map, game->player->pos.x + 1, 
+	if (move == RIGHT
+		&& get_tile(*game->map, game->player->pos.x + 1,
 			game->player->pos.y) != WALL)
 		game->player->pos.x++;
-	return (location.x != game->player->pos.x 
+	return (location.x != game->player->pos.x
 		|| location.y != game->player->pos.y);
 }
 

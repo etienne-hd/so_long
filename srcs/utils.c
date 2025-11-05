@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 21:54:56 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 05:19:00 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 02:58:38 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_linelen(char *str)
 	return (i);
 }
 
-int		is_readable_file(const char *path)
+int	is_readable_file(const char *path)
 {
 	int	fd;
 
@@ -36,12 +36,11 @@ int		is_readable_file(const char *path)
 	return (1);
 }
 
-
 long int	get_timestamp(void)
 {
-    struct timeval tv;
-    struct timezone tz;
+	struct timeval	tv;
+	struct timezone	tz;
 
-	gettimeofday(&tv,&tz);
+	gettimeofday(&tv, &tz);
 	return (tv.tv_usec);
 }

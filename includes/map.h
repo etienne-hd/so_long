@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 18:08:34 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:31:45 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef enum e_tile
 	START = 'P',
 	FILL = 'X'
 }			t_tile;
-typedef struct	s_map
+typedef struct s_map
 {
 	t_location	size;
 	t_location	start;
@@ -31,7 +31,7 @@ typedef struct	s_map
 	char		**grid;
 }				t_map;
 t_map	load_map(char *path);
-t_map	new_map();
+t_map	new_map(void);
 void	destroy_map(t_map *map);
 t_map	clone_map(const t_map src_map);
 void	show_map(t_map map);

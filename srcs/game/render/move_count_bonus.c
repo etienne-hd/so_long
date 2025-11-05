@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 20:13:37 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 02:37:50 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:27:16 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,16 @@ static char	*itoa_zero(size_t value, size_t n)
 	{
 		s[n - 1] = '0' + value % 10;
 		value /= 10;
-		n--; 
+		n--;
 	}
 	return (s);
 }
 
 void	game_render_move_count(t_game *game)
 {
-	char	*move_str;
-	
+	char		*move_str;
+	mlx_color	color;
+
 	if (game->player->move > 9999)
 	{
 		game_on_lose(game);
@@ -44,10 +45,11 @@ void	game_render_move_count(t_game *game)
 	move_str = itoa_zero(game->player->move, 4);
 	if (!move_str)
 		return ;
+	color.rgba = 0xFFFFFFFF;
 	mlx_set_font_scale(game->mlx, "default", (float)TEXTURE_SIZE / 3);
 	mlx_string_put(game->mlx, game->win,
 		(game->map->size.x - 2) * TEXTURE_SIZE, TEXTURE_SIZE / 2,
-		(mlx_color){ .rgba = 0xFFFFFFFF }, 
+		color,
 		move_str);
 	free(move_str);
 }

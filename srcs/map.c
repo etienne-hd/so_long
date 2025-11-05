@@ -6,14 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 01:57:58 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 02:56:52 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 #include "libft.h"
 
-t_map	new_map()
+t_map	new_map(void)
 {
 	t_map	map;
 
@@ -36,7 +36,7 @@ t_map	clone_map(const t_map map)
 {
 	t_map	clone_map;
 	size_t	i;
-	
+
 	clone_map = map;
 	clone_map.grid = ft_calloc(map.size.y, sizeof(char *));
 	if (!clone_map.grid)

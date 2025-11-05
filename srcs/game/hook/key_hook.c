@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:13:17 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:23:31 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:24:38 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	game_key_hook(int key, void *param)
 {
-	t_game	*game; 
+	t_game	*game;
 
 	game = (t_game *)param;
 	if (key == 41)

@@ -6,17 +6,17 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 08:57:22 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:24:59 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:25:03 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void game_window_hook(int event, void *param)
+void	game_window_hook(int event, void *param)
 {
 	t_game	*game;
-	
+
 	game = (t_game *)param;
-	if(event == 0)
+	if (event == 0)
 		mlx_loop_end(game->mlx);
 }

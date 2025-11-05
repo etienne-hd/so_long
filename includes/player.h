@@ -6,17 +6,17 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:05 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 22:53:24 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:30:36 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_H
 # define PLAYER_H
-#include <stdlib.h>
-#include "location.h"
+# include <stdlib.h>
+# include "location.h"
 # include "move.h"
 
-typedef struct	s_player
+typedef struct s_player
 {
 	t_location	pos;
 	size_t		move;

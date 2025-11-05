@@ -6,14 +6,14 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:22:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 01:59:28 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:23:08 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "texture.h"
 
-void game_on_update(void *param)
+void	game_on_update(void *param)
 {
 	t_game	*game;
 

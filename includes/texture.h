@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:35:51 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 18:00:07 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:31:28 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # include "mlx.h"
 # include "libft.h"
 
-typedef struct	s_game t_game;
+typedef struct s_game	t_game;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
-	int		x;
-	int		y;
+	int			x;
+	int			y;
 	mlx_image	texture;
 }				t_texture;
 t_texture	*load_texture(t_game *game, const char *path);

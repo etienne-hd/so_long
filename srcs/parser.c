@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:59:51 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/03 17:16:21 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 02:57:05 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	init_map(t_map *map, char *path)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		map->grid[y] = line;
 		y++;
 	}
@@ -79,7 +79,7 @@ static int	init_map_size(t_map *map, char *path)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		line_length = ft_linelen(line);
 		if (map->size.x == 0)
 			map->size.x = line_length;

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:41:39 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 02:15:26 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:20:05 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "texture.h"
 #include "game.h"
 
-const char *g_textures[] = {
+const char	*g_textures[] = {
 	"assets/air.png",
 	"assets/wall_surrounded.png",
 	"assets/wall_side.png",
@@ -38,7 +38,7 @@ t_texture	*load_texture(t_game *game, const char *path)
 	if (!texture)
 		return (NULL);
 	texture->texture = mlx_new_image_from_file(game->mlx, (char *)path,
-		&texture->x, &texture->y);
+			&texture->x, &texture->y);
 	return (texture);
 }
 
@@ -85,7 +85,7 @@ int	check_textures(t_game *game)
 
 void	destroy_textures(t_game *game)
 {
-	size_t	i;
+	size_t		i;
 	t_texture	*texture;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:36:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 17:02:48 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:18:55 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static mlx_window_create_info	get_info(size_t x, size_t y)
 	info.height = y;
 	info.is_resizable = false;
 	return (info);
-}	
+}
 
 void	start_game(t_map *map, t_player *player)
 {

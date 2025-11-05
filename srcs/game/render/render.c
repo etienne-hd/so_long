@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 01:23:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 01:16:00 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 03:28:47 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	game_render(t_game *game, t_location location,
 	if (texture->x == 0 || texture->y == 0)
 		return ;
 	mlx_put_transformed_image_to_window(
-		game->mlx, game->win, 
-		texture->texture, 
-		location.x * TEXTURE_SIZE, 
+		game->mlx, game->win,
+		texture->texture,
+		location.x * TEXTURE_SIZE,
 		location.y * TEXTURE_SIZE,
 		(float)TEXTURE_SIZE / texture->x,
 		(float)TEXTURE_SIZE / texture->y,
 		angle
-	);
+		);
 }

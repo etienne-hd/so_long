@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 02:44:58 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 02:54:51 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@ static int	invalid_tile(t_map *map)
 		j = 1;
 		while (j < map->size.x - 1)
 		{
-			if (!(
-				map->grid[i][j] == AIR || map->grid[i][j] == WALL
+			if (!(map->grid[i][j] == AIR || map->grid[i][j] == WALL
 				|| map->grid[i][j] == COLLECTIBLE
 				|| map->grid[i][j] == EXIT
 				|| map->grid[i][j] == START
@@ -94,8 +93,8 @@ static int	invalid_tile(t_map *map)
 
 static int	check_size(t_map *map)
 {
-	if (map->size.x * TEXTURE_SIZE > 1920 ||
-		(map->size.y + 2) * TEXTURE_SIZE > 1080)
+	if (map->size.x * TEXTURE_SIZE > 1920
+		|| (map->size.y + 2) * TEXTURE_SIZE > 1080)
 	{
 		ft_dprintf(2, "Error\nMap too big.\n");
 		return (0);
