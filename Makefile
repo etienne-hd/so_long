@@ -60,7 +60,7 @@ CFLAGS = -g \
 		-I libft/get_next_line/ \
 		-I $(MLX_DIR)includes
 
-LDFLAGS = $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
+LDFLAGS = -Wall -Werror -Wextra -g $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
 
 all: $(NAME)
 
