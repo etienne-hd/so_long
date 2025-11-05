@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:36:43 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 02:56:17 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 18:54:49 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,13 @@ int	is_valid_map(t_map *map)
 		ft_dprintf(2, "Error\nMap contains invalid tile.\n");
 		return (0);
 	}
+	if (!check_size(map))
+		return (0);
 	if (!map_flood_fill(map))
 	{
 		ft_dprintf(2, "Error\nMap cannot be played \
 (there is no valid path).\n");
 		return (0);
 	}
-	if (!check_size(map))
-		return (0);
 	return (1);
 }
