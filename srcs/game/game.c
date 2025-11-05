@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 19:36:10 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 03:18:55 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/05 05:35:26 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	start_game(t_map *map, t_player *player)
 	game.map = map;
 	game.player = player;
 	game.mlx = mlx_init();
-	if (!game.mlx)
-		return ;
 	game.textures = load_textures(&game);
 	if (!check_textures(&game))
 	{
