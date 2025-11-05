@@ -6,20 +6,24 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 17:50:03 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/04 18:08:42 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/04 23:07:11 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 #include "player.h"
 #include "game.h"
-#include "libft.h"
-#include "texture.h"
+
+static void	destory_entity(t_player **player)
+{
+	free(*player);
+	*player = NULL;
+}
 
 int	main(int argc, char **argv)
 {
 	t_map		map;
-	t_player	player;
+	t_player	*player;
 
 	if (argc != 2)
 	{
@@ -35,6 +39,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	player = new_player(map.start.x, map.start.y);
-	start_game(&map, &player);
+	start_game(&map, player);
+	destory_entity(&player);
 	destroy_map(&map);
 }

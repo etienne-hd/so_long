@@ -27,16 +27,17 @@ SRCS = $(SRC_DIR)so_long.c \
 SRCS_BONUS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)parser.c \
 		$(SRC_DIR)map.c \
-		$(SRC_DIR)map_checker.c \
-		$(SRC_DIR)map_flood_fill.c \
+		$(SRC_DIR)map_checker_bonus.c \
+		$(SRC_DIR)map_flood_fill_bonus.c \
 		$(SRC_DIR)utils.c \
 		$(SRC_DIR)player.c \
-		$(SRC_DIR)game/texture.c \
+		$(SRC_DIR)game/texture_bonus.c \
 		$(SRC_DIR)game/game.c \
-		$(SRC_DIR)game/event/on_move.c \
+		$(SRC_DIR)game/event/on_move_bonus.c \
 		$(SRC_DIR)game/event/on_update_bonus.c \
 		$(SRC_DIR)game/event/on_collect.c \
 		$(SRC_DIR)game/event/on_exit.c \
+		$(SRC_DIR)game/event/on_lose_bonus.c \
 		$(SRC_DIR)game/hook/key_hook.c \
 		$(SRC_DIR)game/hook/window_hook.c \
 		$(SRC_DIR)game/render/map.c \
@@ -44,7 +45,8 @@ SRCS_BONUS = $(SRC_DIR)so_long.c \
 		$(SRC_DIR)game/render/wall.c \
 		$(SRC_DIR)game/render/collectible.c \
 		$(SRC_DIR)game/render/move_count_bonus.c \
-		$(SRC_DIR)game/render/render.c
+		$(SRC_DIR)game/render/patrols.c \
+		$(SRC_DIR)game/render/render.c \
 
 OBJ_DIR = objs/
 OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
