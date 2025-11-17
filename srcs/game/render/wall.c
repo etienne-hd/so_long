@@ -6,7 +6,7 @@
 /*   By: ehode <ehode@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 02:13:59 by ehode             #+#    #+#             */
-/*   Updated: 2025/11/05 03:29:47 by ehode            ###   ########.fr       */
+/*   Updated: 2025/11/17 17:36:13 by ehode            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "map.h"
 #include <stddef.h>
 
-static int	is_wall(t_game *game, long int x, long int y)
+static int	is_wall(t_game *game, size_t x, size_t y)
 {
 	if (x < 0 || y < 0
 		|| x > game->map->size.x - 1 || y > game->map->size.y - 1)
@@ -24,7 +24,7 @@ static int	is_wall(t_game *game, long int x, long int y)
 }
 
 static int	game_render_wall_corner(t_game *game, t_location location,
-	long int x, long int y)
+	size_t x, size_t y)
 {
 	if (!is_wall(game, x + 1, y + 1))
 		game_render(game, location,
@@ -43,7 +43,7 @@ static int	game_render_wall_corner(t_game *game, t_location location,
 }
 
 static int	game_render_wall_side(t_game *game, t_location location,
-	long int x, long int y)
+	size_t x, size_t y)
 {
 	if (!is_wall(game, x + 1, y))
 		game_render(game, location,

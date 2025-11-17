@@ -53,14 +53,14 @@ OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 OBJS_BONUS = $(SRCS_BONUS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 LIBFT = ./libft/libft.a
 
-CFLAGS = -g \
+CFLAGS = -Wall -Werror -Wextra -g \
 		-I includes \
 		-I libft \
 		-I libft/ft_printf/includes \
 		-I libft/get_next_line/ \
 		-I $(MLX_DIR)includes
 
-LDFLAGS = -Wall -Werror -Wextra -g $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
+LDFLAGS = $(LIBFT) $(MLX_DIR)libmlx.so -lSDL2
 
 all: $(NAME)
 
